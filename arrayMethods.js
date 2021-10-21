@@ -19,7 +19,7 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 
 // CODE HERE
 const evenNumbers = mixedNumbers.filter(element => element % 2 === 0)
-console.log(evenNumbers)
+// console.log(evenNumbers)
 
 ////////// PROBLEM 2 //////////
 
@@ -38,8 +38,10 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-// const postTaxPrices // = prices.map(/* Provide Your Callback Here );
-
+const postTaxPrices = prices.map(element => {
+  return element = (element * 1.07)
+});
+// console.log(postTaxPrices)
 
 
 ////////// PROBLEM 3 //////////
@@ -56,8 +58,10 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 // CODE HERE
-// const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
-
+const totalPopulation = populations.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+})
+// console.log(totalPopulation)
 
 
 ////////// PROBLEM 4 //////////
@@ -76,12 +80,14 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 
 /*
   Now we're going to ramp these up a little bit.
-  Instead of just arrays of numbers, we are going to have array of objects that we want to use map, filter, and reduce with.
+  Instead of just arrays of numbers, 
+  we are going to have array of objects that we want to use map, filter, and reduce with.
   Use the filter method to return only the monsters that have a CP of over 200.
 */
 
 // CODE HERE
-// const mySstrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest = monstersInYourPocket.filter(elm => elm.CP > 200).map(elem => elem.monster + ", ").reduce((acc, cur) => acc + cur)
+// console.log("Strongest: " + myStrongest)
 
 
 
@@ -95,11 +101,19 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 // Do not edit code above.
 
 /*
-  Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
+  Use a higher order method to get all the order totals after adding in the sales tax 
+  (given to you as a tax rate, hint: you'll need to do some multiplication).
+   Your answer should be an array of numbers, one total for each order.
 */
 
 // CODE HERE
+const priceAfterTax = orders.map(element => {
+  const prices = []
+  prices.push(element.price * (1+element.tax))
+  return prices
+})
 
+console.log(priceAfterTax)
 
 
 ////////// PROBLEM 6 //////////
@@ -119,3 +133,14 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+const nameToSearch = "Bob"
+
+const bobsTotal = purchases.filter(element => {
+  return element.owner === nameToSearch
+}).map(element => {
+  return element.price
+}).reduce((acc, curr) => {
+  return acc + curr
+})
+
+console.log(bobsTotal)
