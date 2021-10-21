@@ -15,7 +15,7 @@ const multiply = (num1, num2, callback) => {
 // CHECK YOUR ANSWER
 
 multiply(4, 3, answer => {
-  console.log('The answer is ' + answer) //should console.log 12
+  // console.log('The answer is ' + answer) //should console.log 12
 })
 
 
@@ -47,7 +47,7 @@ const first = (arr, callback) => {
 // CHECK YOUR ANSWER
 
 first(names, firstName => {
-  console.log('The first name in names is ' + firstName)
+  // console.log('The first name in names is ' + firstName)
 })
 
 
@@ -70,7 +70,7 @@ const last = (arr, cb) => {
 // CHECK YOUR ANSWER
 
 last(names, lastName => {
-  console.log('The last name in names is ' + lastName)
+  // console.log('The last name in names is ' + lastName)
 })
 
 
@@ -94,11 +94,11 @@ const contains = (arrNames, name, cb) => {
 // CHECK YOUR ANSWER
 
 contains(names, 'Colt', result => {
-  console.log(result)
+  // console.log(result)
   if(result === true){
-    console.log('Colt is in the array')
+    // console.log('Colt is in the array')
   } else {
-    console.log('Colt is not in the array')
+    // console.log('Colt is not in the array')
   }
 })
 
@@ -137,7 +137,7 @@ const uniq = (arr, cb) => {
 
 // CODE HERE
 uniq(names,(uniqArr=> {
-  console.log(`The new names array with all the duplicate items removed is ${uniqArr}`)
+  // console.log(`The new names array with all the duplicate items removed is ${uniqArr}`)
 }))
 
 
@@ -172,13 +172,14 @@ const each = (arr, cb) => {
 
 // CODE HERE
 each(names, (item, index) => {
-  console.log(`The item at index ${index} is ${item}`)
+  // console.log(`The item at index ${index} is ${item}`)
 })
 
 ////////// PROBLEM 7 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  Write a function called getUserById that takes in three parameters: an array of objects (users),
+   an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
@@ -206,15 +207,20 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+const getUserById = (users, id, cb) => {
+  users.forEach(element => {
+    cb(element, id)
+  })
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  // console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
